@@ -1,0 +1,52 @@
+<div [formGroup]="ruleForm" class="p-fluid p-grid">
+    <fieldset class="Rules">
+        <legend>חוקים</legend>
+        <div class="p-col-12">
+            <div class="margin-div p-field p-col-4" *ngIf="lawNameList&& lawNameList.length>0">
+                <label for="inputtext">חוק</label>
+                <span class="p-float-label">
+                    <mat-form-field appearance="fill">
+                        <mat-label>שם החוק</mat-label>
+                        <mat-select (selectionChange)="updateLawName()" formControlName="LawName">
+                            <mat-option *ngFor="let  lawItem of lawNameList" [value]="lawItem">{{lawItem.LawName}}
+                            </mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                </span>
+            </div>
+            <div class="margin-div p-field p-col-4" *ngIf="sectionList&& sectionList.length>0">
+                <label for="inputtext">סעיף</label>
+                <span class="p-float-label">
+                    <mat-form-field appearance="fill">
+                        <mat-label>מספר הסעיף</mat-label>
+                        <mat-select (selectionChange)="updateSection()" formControlName="componentNum">
+                            <mat-option *ngFor="let  sectionItem of sectionList" [value]="sectionItem">
+                                {{sectionItem.componentNum}}</mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                </span>
+            </div>
+            <div class="margin-div p-field p-col-4" *ngIf="refToList&& refToList.length>0">
+                <label for="inputtext">הפניות בתוך החוק</label>
+                <span class="p-float-label">
+                    <mat-form-field appearance="fill">
+                        <mat-label>הפניות בחוק</mat-label>
+                        <mat-select (selectionChange)="updaterefTo()" formControlName="refto">
+                            <mat-option *ngFor="let  refToItem of refToList" [value]="refToItem">{{refToItem.refTo_eId}}
+                            </mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                </span>
+            </div>
+            <button [disabled]="isDisabled" class="button" (click)="search()">חיפוש</button>
+
+            <div *ngIf="isClickable">
+                <a href="{{url}}"> קישור לחוק ולסעיף</a>
+            </div>
+
+        </div>
+    </fieldset>
+</div>

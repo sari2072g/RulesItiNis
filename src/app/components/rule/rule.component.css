@@ -1,0 +1,13 @@
+.Rules{
+    text-align: center;
+    width: 30%;
+    margin-left: 35%;
+}
+.button{
+    color: white;
+    background-color: powderblue;
+    width: 25%;
+    height: 30px;
+    border-radius: 6px;
+margin-bottom: 8px;
+}
